@@ -6,7 +6,7 @@ Here I am trying out [pycodestyle](http://pycodestyle.pycqa.org/en/latest/) and 
 
 ## pycodestyle
 
-I'm kind of a sucker for UML and pylint ships with an interesting-looking tool (`pyreverse`) which I wanted to try out.
+This is probably the linter to use, specifically for the `PEP 8` integration.
 
 #### Installation
 
