@@ -11,11 +11,16 @@ useful suggestions as using underscores instead of hyphens, and whether or not c
 
 All in all, it's generally a best practice to keep code as idiomatic as possible. And linters are great for this.
 
-Here I am trying out [pycodestyle](http://pycodestyle.pycqa.org/en/latest/) and [pylint](https://www.pylint.org/).
+Here I am trying out [pycodestyle](http://pycodestyle.pycqa.org/en/latest/), [pylint](https://www.pylint.org/),
+and [pydocstyle](https://github.com/PyCQA/pydocstyle).
 
 ## pycodestyle
 
 This is probably the linter to use, specifically for the `PEP 8` integration.
+
+However, I still like `pylint` quite a lot, for one thing it will complain if a file is not named in a Pythonesque
+way. And they've gamified `pylint` pretty well, it's oddly satisfying to clean up formatting and see the code score
+improve.
 
 #### Installation
 
@@ -60,3 +65,28 @@ Run `pyreverse` as follows:
     $ pyreverse -f PUB_ONLY -o png -p <package> *.py
 
 [The default output format is `dot`, here we are specifying the graphic format `png`.]
+
+## pydocstyle
+
+While not strictly a linter, having well-formed docstrings allows for the use of automated documentation generators.
+
+#### Installation
+
+Run the following command:
+
+    $ pip install --user pydocstyle
+
+#### Running
+
+Run `pydocstyle` as follows:
+
+    $ pydocstyle xxxxx.py
+
+There are a number of configurable options. For instance, it's possible to list PEP257 conventions to ignore as follows:
+
+    $ pydocstyle xxxxx.py --ignore=D210,D213,D401
+
+A full list of pydocstyle errors may be found [here](http://www.pydocstyle.org/en/latest/error_codes.html).
+
+[My personal feeling is that `pydocstyle` should be run from time to time, but is
+ probably a bit too finicky for regular use. Your mileage may vary.]
