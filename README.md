@@ -18,6 +18,8 @@ and [pydocstyle](https://github.com/PyCQA/pydocstyle).
 
 This is probably the linter to use, specifically for the `PEP 8` integration.
 
+In fact, it was formerly called `pep8`.
+
 However, I still like `pylint` quite a lot, for one thing it will complain if a file is not named in a Pythonesque
 way. And they've gamified `pylint` pretty well, it's oddly satisfying to clean up formatting and see the code score
 improve.
@@ -65,6 +67,43 @@ Run `pyreverse` as follows:
     $ pyreverse -f PUB_ONLY -o png -p <package> *.py
 
 [The default output format is `dot`, here we are specifying the graphic format `png`.]
+
+## An example of using `pylint` and `pycodestyle`
+
+Here we will use a quick test case:
+
+```bash
+$ python bad-python.py
+This code does not follow 'pylint' file naming conventions!
+This code does not follow 'pycodestyle' coding conventions!
+$
+```
+
+These linters flag different things, so it's probably worth running both:
+
+```bash
+$ pycodestyle *.py
+bad-python.py:10:80: E501 line too long (85 > 79 characters)
+bad-python.py:12:1: W391 blank line at end of file
+$
+```
+
+And:
+
+```bash
+$ pylint *.py
+No config file found, using default configuration
+************* Module bad-python
+C: 12, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Module name "bad-python" doesn't conform to snake_case naming style (invalid-name)
+W:  7, 0: String statement has no effect (pointless-string-statement)
+W: 10, 0: String statement has no effect (pointless-string-statement)
+
+---------------------------------------------------------------------
+Your code has been rated at 0.00/10 (previous run: -10.00/10, +10.00)
+
+$
+```
 
 ## pydocstyle
 
