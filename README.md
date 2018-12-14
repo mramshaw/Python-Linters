@@ -129,3 +129,16 @@ A full list of pydocstyle errors may be found [here](http://www.pydocstyle.org/e
 
 [My personal feeling is that `pydocstyle` should be run from time to time, but is
  probably a bit too finicky for regular use. Your mileage may vary.]
+
+## An example of using `pydocstyle`
+
+Again, we will use our test case:
+
+```bash
+$ pydocstyle *.py
+bad-python.py:1 at module level:
+        D200: One-line docstring should fit on one line with quotes (found 3)
+$
+```
+
+Useful for anyone not too familiar with what `pythonic` means!
