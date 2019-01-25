@@ -123,6 +123,22 @@ Your code has been rated at 0.00/10 (previous run: -10.00/10, +10.00)
 $
 ```
 
+Or (disabling checks for snake_case naming):
+
+```bash
+$ pylint --disable=C0103 *.py
+No config file found, using default configuration
+************* Module bad-python
+C: 12, 0: Trailing newlines (trailing-newlines)
+W:  7, 0: String statement has no effect (pointless-string-statement)
+W: 10, 0: String statement has no effect (pointless-string-statement)
+
+------------------------------------------------------------------
+Your code has been rated at 2.50/10 (previous run: 0.00/10, +2.50)
+
+$
+```
+
 ## pydocstyle
 
 While not strictly a linter, having well-formed docstrings allows for the use of automated documentation generators.
