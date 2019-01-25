@@ -62,6 +62,24 @@ Run `pylint` as follows:
 
 For any obsessive-compulsives, `pylint` provides a code score (and monitors progress).
 
+Ignore certain linting rules as follows:
+
+    $ pylint --disable=C0103 bad-python.py
+
+In the example above, we are ignoring snake_case naming style - say to conform to
+`benchmark` or `pytest` coding conventions. We could also achieve the same result
+ by annotating all of our offending code blocks as follows:
+
+```python
+#!/usr/bin/env python
+
+# pylint: disable=C0103
+
+"""
+An example of Python code that will fail linting.
+"""
+```
+
 Run `pyreverse` as follows:
 
     $ pyreverse -f PUB_ONLY -o png -p <package> *.py
@@ -142,3 +160,7 @@ $
 ```
 
 Useful for anyone not too familiar with what `pythonic` means!
+
+## To Do
+
+- [x] Add notes on disabling specific `pylint` rules
