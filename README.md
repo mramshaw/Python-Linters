@@ -35,11 +35,12 @@ The contents are as follows:
 * [pylint](#pylint)
     * [Installing pylint](#installing-pylint)
     * [Running pylint](#running-pylint)
-* [An example of using `pylint` and `pycodestyle`](*an-example-of-using-pylint-and-pycodestyle)
+    * [Running pyreverse](#running-pyreverse)
+* [An example of using `pylint` and `pycodestyle`](#an-example-of-using-pylint-and-pycodestyle)
 * [pydocstyle](#pydocstyle)
     * [Installing pydocstyle](#installing-pydocstyle)
     * [Running pydocstyle](#running-pydocstyle)
-* [An example of using `pydocstyle`](*an-example-of-using-pydocstyle)
+* [An example of using `pydocstyle`](#an-example-of-using-pydocstyle)
 * [Black](#black)
     * [Installing Black](#installing-black)
     * [Running Black](#running-black)
@@ -112,6 +113,8 @@ In the example above, we are ignoring snake_case naming style - say to conform t
 An example of Python code that will fail linting.
 """
 ```
+
+#### Running pyreverse
 
 Run `pyreverse` as follows:
 
