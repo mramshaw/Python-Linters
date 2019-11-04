@@ -79,6 +79,8 @@ Show the offending source code and the relevant text from PEP 8:
 
 I'm kind of a sucker for UML and pylint ships with an interesting-looking tool (`pyreverse`) which I wanted to try out.
 
+For anyone preparing to migrate code from Python 2 to Python 3, `pylint` will highlight potential problem areas.
+
 #### Installing pylint
 
 Run the following command:
