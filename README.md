@@ -44,7 +44,7 @@ The contents are as follows:
 * [Black](#black)
     * [Installing Black](#installing-black)
     * [Running Black](#running-black)
-* [To Do](#todo)
+* [To Do](#to-do)
 
 ## pycodestyle
 
@@ -113,6 +113,24 @@ In the example above, we are ignoring snake_case naming style - say to conform t
 An example of Python code that will fail linting.
 """
 ```
+
+`pylint` has some nice features - it is possible to disable a rule by it's __name__
+as well as by it's __key__. And it is also possible to disable a rule (or rules)
+for a __single line of code__.
+
+For example, `pylint` will object to the following line of Django code:
+
+```python
+from . import views
+```
+
+If this line of code is annotated as follows, `pylint` will be happy:
+
+```python
+from . import views  # pylint: disable=relative-beyond-top-level
+```
+
+Note that we did not have to look up the __key__ value for __relative-beyond-top-level__.
 
 #### Running pyreverse
 
@@ -308,7 +326,7 @@ Oh no! 💥 💔 💥
 root@7ebc68fc6b42:/app#
 ```
 
-Or, to simply view the changes `black` would make:
+Or, to simply view the changes `black` would make (it is still in __beta__, after all):
 
     $ black . --diff
 
@@ -336,4 +354,5 @@ root@325bb7a3d2a3:/app#
 ## To Do
 
 - [x] Add notes on disabling specific `pylint` rules
+- [x] Add notes on disabling specific `pylint` rules for a single line of code
 - [x] Add notes on Black (code formatter)
