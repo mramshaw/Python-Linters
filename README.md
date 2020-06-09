@@ -168,7 +168,7 @@ parsing __main__.py...
 $
 ```
 
-And the results looks as follows:
+The results look as follows:
 
 ![cpuinfo package](images/packages_cpuinfo.png)
 
