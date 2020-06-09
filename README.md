@@ -137,13 +137,13 @@ for a __single line of code__.
 
 For example, `pylint` will object to the following line of Django code:
 
-```python
+```python3
 from . import views
 ```
 
 If this line of code is annotated as follows, `pylint` will be happy:
 
-```python
+```python3
 from . import views  # pylint: disable=relative-beyond-top-level
 ```
 
@@ -223,7 +223,7 @@ Your code has been rated at 2.50/10 (previous run: 0.00/10, +2.50)
 $
 ```
 
-[Note thet the __code score__ has increased.]
+[Note that the __code score__ has increased.]
 
 ## pydocstyle
 
