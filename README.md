@@ -31,18 +31,22 @@ The contents are as follows:
 
 * [pycodestyle](#pycodestyle)
     * [Installing pycodestyle](#installing-pycodestyle)
+    * [Verify pycodestyle version](#verify-pycodestyle-version)
     * [Running pycodestyle](#running-pycodestyle)
 * [pylint](#pylint)
     * [Installing pylint](#installing-pylint)
+    * [Verify pylint version](#verify-pylint-version)
     * [Running pylint](#running-pylint)
     * [Running pyreverse](#running-pyreverse)
 * [An example of using `pylint` and `pycodestyle`](#an-example-of-using-pylint-and-pycodestyle)
 * [pydocstyle](#pydocstyle)
     * [Installing pydocstyle](#installing-pydocstyle)
+    * [Verify pydocstyle version](#verify-pydocstyle-version)
     * [Running pydocstyle](#running-pydocstyle)
 * [An example of using `pydocstyle`](#an-example-of-using-pydocstyle)
 * [Black](#black)
     * [Installing Black](#installing-black)
+    * [Verify Black version](#verify-black-version)
     * [Running Black](#running-black)
 * [To Do](#to-do)
 
@@ -60,7 +64,13 @@ improve.
 
 Run the following command:
 
-    $ pip install --user pycodestyle
+    $ pip3 install --user pycodestyle
+
+#### Verify pycodestyle version
+
+Verify the version as follows:
+
+    $ pycodestyle --version
 
 #### Running pycodestyle
 
@@ -86,7 +96,13 @@ For anyone preparing to migrate code from Python 2 to Python 3, `pylint` will hi
 
 Run the following command:
 
-    $ pip install --user -r requirements-pylint.txt
+    $ pip3 install --user pylint
+
+#### Verify pycodestyle version
+
+Verify the version as follows:
+
+    $ pylint --version
 
 #### Running pylint
 
@@ -104,8 +120,8 @@ In the example above, we are ignoring snake_case naming style - say to conform t
 `benchmark` or `pytest` coding conventions. We could also achieve the same result
  by annotating all of our offending code blocks as follows:
 
-```python
-#!/usr/bin/env python
+```python3
+#!/usr/bin/env python3
 
 # pylint: disable=C0103
 
@@ -140,12 +156,27 @@ Run `pyreverse` as follows:
 
 [The default output format is `dot`, here we are specifying the graphic format `png`.]
 
+For `cpuinfo` this looks as follows:
+
+```bash
+$ cd ~/.local/lib/python3.6/site-packages/cpuinfo
+$ pyreverse -f PUB_ONLY -o png -p cpuinfo *.py
+parsing cpuinfo.py...
+parsing __init__.py...
+parsing __main__.py...
+$
+```
+
+And the result looks as follows:
+
+![cpuinfo](images/packages_cpuinfo.png)
+
 ## An example of using `pylint` and `pycodestyle`
 
 Here we will use a quick test case:
 
 ```bash
-$ python bad-python.py
+$ python3 bad-python.py
 This code does not follow 'pylint' file naming conventions!
 This code does not follow 'pycodestyle' coding conventions!
 $
@@ -164,15 +195,14 @@ And:
 
 ```bash
 $ pylint *.py
-No config file found, using default configuration
 ************* Module bad-python
-C: 12, 0: Trailing newlines (trailing-newlines)
-C:  1, 0: Module name "bad-python" doesn't conform to snake_case naming style (invalid-name)
-W:  7, 0: String statement has no effect (pointless-string-statement)
-W: 10, 0: String statement has no effect (pointless-string-statement)
+bad-python.py:12:0: C0305: Trailing newlines (trailing-newlines)
+bad-python.py:1:0: C0103: Module name "bad-python" doesn't conform to snake_case naming style (invalid-name)
+bad-python.py:7:0: W0105: String statement has no effect (pointless-string-statement)
+bad-python.py:10:0: W0105: String statement has no effect (pointless-string-statement)
 
----------------------------------------------------------------------
-Your code has been rated at 0.00/10 (previous run: -10.00/10, +10.00)
+------------------------------------------------------------------
+Your code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)
 
 $
 ```
@@ -181,11 +211,10 @@ Or (disabling checks for snake_case naming):
 
 ```bash
 $ pylint --disable=C0103 *.py
-No config file found, using default configuration
 ************* Module bad-python
-C: 12, 0: Trailing newlines (trailing-newlines)
-W:  7, 0: String statement has no effect (pointless-string-statement)
-W: 10, 0: String statement has no effect (pointless-string-statement)
+bad-python.py:12:0: C0305: Trailing newlines (trailing-newlines)
+bad-python.py:7:0: W0105: String statement has no effect (pointless-string-statement)
+bad-python.py:10:0: W0105: String statement has no effect (pointless-string-statement)
 
 ------------------------------------------------------------------
 Your code has been rated at 2.50/10 (previous run: 0.00/10, +2.50)
@@ -202,6 +231,12 @@ While not strictly a linter, having well-formed docstrings allows for the use of
 Run the following command:
 
     $ pip install --user pydocstyle
+
+#### Verify pydocstyle version
+
+Verify the version as follows:
+
+    $ pydocstyle --version
 
 #### Running pydocstyle
 
@@ -224,7 +259,7 @@ Again, we will use our test case:
 
 ```bash
 $ pydocstyle *.py
-bad-python.py:1 at module level:
+bad-python.py:3 at module level:
         D200: One-line docstring should fit on one line with quotes (found 3)
 $
 ```
@@ -240,7 +275,7 @@ While not strictly a linter, having well-formatted code will save everyone a lot
 Note that `black` requires __Python 3.6__ or greater. Verify the version of `python` as follows:
 
 ```bash
-$ python -V
+$ python3 -V
 ...
 $
 ```
@@ -269,7 +304,7 @@ $
 
 Run the following command:
 
-    $ pip install --user black
+    $ pip3 install --user black
 
 If using docker,  this looks as follows:
 
@@ -305,6 +340,12 @@ Installing collected packages: toml, attrs, regex, appdirs, typed-ast, click, pa
 Successfully installed appdirs-1.4.3 attrs-19.3.0 black-19.10b0 click-7.0 pathspec-0.6.0 regex-2019.11.1 toml-0.10.0 typed-ast-1.4.0
 root@7ebc68fc6b42:/app#
 ```
+
+#### Verify Black version
+
+Verify the version as follows:
+
+    $ black --version
 
 #### Running Black
 
@@ -356,3 +397,4 @@ root@325bb7a3d2a3:/app#
 - [x] Add notes on disabling specific `pylint` rules
 - [x] Add notes on disabling specific `pylint` rules for a single line of code
 - [x] Add notes on Black (code formatter)
+- [x] Update for recent Python 3 (__3.6.9__)
