@@ -168,9 +168,13 @@ parsing __main__.py...
 $
 ```
 
-And the result looks as follows:
+And the results looks as follows:
 
-![cpuinfo](images/packages_cpuinfo.png)
+![cpuinfo package](images/packages_cpuinfo.png)
+
+And:
+
+![cpuinfo classes](images/classes_cpuinfo.png)
 
 ## An example of using `pylint` and `pycodestyle`
 
