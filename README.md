@@ -15,9 +15,9 @@ All in all, it's generally a best practice to keep code as idiomatic as possible
 Here I am trying out [pycodestyle](http://pycodestyle.pycqa.org/en/latest/), [pylint](https://www.pylint.org/),
 [pydocstyle](https://github.com/PyCQA/pydocstyle), and [Black](https://github.com/psf/black).
 
-__pycodestyle__ and __pylint__ are ___code linters___ whereas __pydocstyle__ is a ___documentation linter___.
+`pycodestyle` and `pylint` are ___code linters___ whereas `pydocstyle` is a ___documentation linter___.
 
-__Black__, on the other hand, is a ___code formatter___ (along the lines of `gofmt`). These can reduce the pain
+`Black`, on the other hand, is a ___code formatter___ (along the lines of `gofmt`). These can reduce the pain
 of ___code reviews___ as there are fewer arguments about the proper way of formatting code to ensure ___readability___.
 Also, one of Black's claims is that:
 
@@ -37,7 +37,7 @@ The contents are as follows:
     * [Installing pylint](#installing-pylint)
     * [Verify pylint version](#verify-pylint-version)
     * [Running pylint](#running-pylint)
-    * [Running pyreverse](#running-pyreverse)
+    * [pyreverse](#pyreverse)
 * [An example of using `pylint` and `pycodestyle`](#an-example-of-using-pylint-and-pycodestyle)
 * [pydocstyle](#pydocstyle)
     * [Installing pydocstyle](#installing-pydocstyle)
@@ -56,9 +56,9 @@ This is probably the linter to use, specifically for the `PEP 8` integration.
 
 In fact, it was formerly called `pep8`.
 
-However, I still like `pylint` quite a lot, for one thing it will complain if a file is not named in a Pythonesque
-way. And they've gamified `pylint` pretty well, it's oddly satisfying to clean up formatting and see the code score
-improve.
+However, I still like [pylint](#pylint) quite a lot, for one thing it will complain if a file is not named in a
+Pythonic way. And they've gamified `pylint` pretty well, it's oddly satisfying to clean up formatting and see the
+code score improve.
 
 #### Installing pycodestyle
 
@@ -78,7 +78,7 @@ Run `pycodestyle` as follows:
 
     $ pycodestyle xxxxx.py
 
-Limit `pycodestyle` to the first occurrence of a lint:
+Limit `pycodestyle` to the first occurrence of each linting error:
 
     $ pycodestyle --first xxxxx.py
 
@@ -88,7 +88,8 @@ Show the offending source code and the relevant text from PEP 8:
 
 ## pylint
 
-I'm kind of a sucker for UML and pylint ships with an interesting-looking tool (`pyreverse`) which I wanted to try out.
+I'm kind of a sucker for UML and pylint ships with an interesting-looking tool ([pyreverse](#pyreverse))
+which I wanted to try out.
 
 For anyone preparing to migrate code from Python 2 to Python 3, `pylint` will highlight potential problem areas.
 
@@ -98,7 +99,7 @@ Run the following command:
 
     $ pip3 install --user pylint
 
-#### Verify pycodestyle version
+#### Verify pylint version
 
 Verify the version as follows:
 
@@ -148,7 +149,7 @@ from . import views  # pylint: disable=relative-beyond-top-level
 
 Note that we did not have to look up the __key__ value for __relative-beyond-top-level__.
 
-#### Running pyreverse
+#### pyreverse
 
 Run `pyreverse` as follows:
 
@@ -221,6 +222,8 @@ Your code has been rated at 2.50/10 (previous run: 0.00/10, +2.50)
 
 $
 ```
+
+[Note thet the __code score__ has increased.]
 
 ## pydocstyle
 
